@@ -17,21 +17,19 @@ List of posts
       <tr>
         <th>ID</th>
         <th>Title</th>
-        <th>Link</th>
         <th>User</th>
         <th>Time</th>
         
 	  </tr>
       <tr th:each="post : ${list}">
         <td th:text="${post.id}">ID</td>
-        <td th:text="${post.title}">Title</td>
-        <td th:text="${post.link}">Link</td>
+		<td><a th:href="@{${post.link}}"><span th:text="${post.title}"></span></a></td>
         <td th:text="${post.user}">User</td>
         <td th:text="${post.time}">Time</td>
       </tr>
     
     </table>
-
+<!-- 		<td th:text="<a href=@{//${post.link}}>${post.title}</a>">Title</td> -->
 </div>
 </body>
 </html>
