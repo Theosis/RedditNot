@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Reddit... Not!</title>
+</head>
+<body>
+      <a href="/add">Click here to add a post</a><br />
+
+List of posts
+<br />
+
+<div>
+
+  <table>
+
+      <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Link</th>
+        
+	  </tr>
+      <tr th:each="post : ${list}">
+        <td th:text="${post.id}">ID</td>
+        <td th:text="${post.title}">Title</td>
+        <td th:text="${post.link}">Link</td>
+      </tr>
+    
+    </table>
+
+</div>
+</body>
+</html>
