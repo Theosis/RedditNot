@@ -10,14 +10,14 @@ public class Post {
 	@Id
 	@GeneratedValue
 	private Long id;
-	private Date time;
+	private String time;
 	private String title;
 	private String link;
 	private String user;
-	public Date getTime() {
+	public String  getTime() {
 		return time;
 	}
-	public void setTime(Date time) {
+	public void setTime(String time) {
 		this.time = time;
 	}
 	public String getTitle() {
