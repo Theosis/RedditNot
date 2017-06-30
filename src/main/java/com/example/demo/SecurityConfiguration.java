@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -15,7 +16,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 
-    @Override
+/*    @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
@@ -30,11 +31,23 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
                       .and()
                 .logout()
                      .permitAll();
-    }
+    }*/
 
-    @Override
+/*    @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
        auth.inMemoryAuthentication().withUser("user").password("password").roles("USER");
+    }*/
+    
+    @Autowired private UserRepository userRepository;
+    
+    @Override
+    public UserDetailsService userDetailsServiceBean() throws Exception {
+    	return new SSUserDetailsService(userRepository);
+    }
+    
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+    	auth.userDetailsService(userDetailsServiceBean());
     }
 
 }

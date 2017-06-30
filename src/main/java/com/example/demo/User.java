@@ -1,9 +1,9 @@
 package com.example.demo;
 
-import javax.management.relation.Role;
 import javax.persistence.*;
 import java.util.Set;
 
+@Entity
 public class User {
 	
 	@Id
