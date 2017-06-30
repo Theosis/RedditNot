@@ -9,7 +9,7 @@ ADD A POST
 <p />
 <form action="#" th:action="@{/add}" th:object="${Post}" method="post">
     <p>Title: <input type="text" th:field="*{title}" /></p>
-    <p>Link: <input type="text"  th:field="*{link}" /></p>
+    <p>Link: <input type="url"  th:field="*{link}" /></p>
     <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
     <p>
 
